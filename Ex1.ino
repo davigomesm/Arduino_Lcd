@@ -48,9 +48,11 @@ void loop() {
   lcd.setCursor(0, 0);  // Define o cursor para a primeira linha
   lcd.print("Menor:");
   lcd.print(menor);
+  delay(2500);
   lcd.setCursor(0, 1);  // Define o cursor para a segunda linha
   lcd.print("Maior:");
   lcd.print(maior);
+  delay(2500);
   
   // Escreve o menor e o maior valor lido na porta serial
   Serial.print("O menor valor lido foi: ");

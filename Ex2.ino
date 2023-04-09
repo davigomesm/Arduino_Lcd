@@ -45,6 +45,7 @@ void loop() {
   lcd.setCursor(0, 0);  // Define o cursor para a primeira linha
   lcd.print("Soma:");
   lcd.print(soma);
+  delay(5000);
   
   // Escreve a soma na porta serial
   Serial.print("A soma dos valores lidos foi: ");
