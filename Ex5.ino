@@ -1,21 +1,20 @@
-#include <LiquidCrystal.h>  // Inclui a biblioteca do LCD
+#include <LiquidCrystal.h> 
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  // Define os pinos do LCD
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
 
 void setup() {
-  lcd.begin(16, 2);  // Inicializa o LCD
-  Serial.begin(9600);  // Inicializa a comunicação serial
+  lcd.begin(16, 2);  
+  Serial.begin(9600); 
 }
 
 void loop() {
-  lcd.clear();  // Limpa o LCD
-  lcd.setCursor(0, 0);  // Define o cursor para a primeira linha
+  lcd.clear(); 
+  lcd.setCursor(0, 0); 
   lcd.print("Digite um numero:");
   
-  while(!Serial.available());  // Espera o usuário digitar algo
-  int num = Serial.parseInt();  // Lê o número digitado
+  while(!Serial.available()); 
+  int num = Serial.parseInt(); 
   
-  // Verifica se o número é primo
   bool primo = true;
   for(int i=2; i<num; i++) {
     if(num % i == 0) {
@@ -24,19 +23,17 @@ void loop() {
     }
   }
   
-  // Escreve o resultado no LCD
-  lcd.clear();  // Limpa o LCD
-  lcd.setCursor(0, 0);  // Define o cursor para a primeira linha
+  lcd.clear(); 
+  lcd.setCursor(0, 0); 
   lcd.print("O numero ");
   lcd.print(num);
-  lcd.setCursor(0, 1);  // Define o cursor para a segunda linha
+  lcd.setCursor(0, 1); 
   if(primo) {
     lcd.print("e primo");
   } else {
     lcd.print("nao e primo");
   }
-  
-  // Escreve o resultado na porta serial
+
   Serial.print("O numero ");
   Serial.print(num);
   if(primo) {
